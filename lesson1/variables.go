@@ -25,4 +25,9 @@ func main() {
 	// If an initializer is present, the type can be omitted
 	var x, y, z = true, false, "Test"
 	fmt.Println(x, y, z)
+
+	// To declare and initialize a floating point value, give it floating point syntax or use conversion
+	n := float64(1)
+	m := 1.0
+	fmt.Printf("Types of n and m is %T and %T", n, m)
 }
