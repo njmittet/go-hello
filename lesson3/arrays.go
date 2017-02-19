@@ -88,6 +88,13 @@ func lencap() {
 	fmt.Printf("len=%d cap=%d %v\n", len(c), cap(c), c)
 }
 
+// The zero value of a slice is nil
+func nilslice() {
+	// A nil slice has a length and capacity of 0 and has no underlying array
+	var s []int
+	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+}
+
 func main() {
 	basic()
 	slice()
@@ -95,4 +102,5 @@ func main() {
 	literals()
 	defaults()
 	lencap()
+	nilslice()
 }
