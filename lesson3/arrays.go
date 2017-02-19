@@ -89,7 +89,7 @@ func lencap() {
 }
 
 // The zero value of a slice is nil
-func nilslice() {
+func nilSlice() {
 	// A nil slice has a length and capacity of 0 and has no underlying array
 	var s []int
 	printSlice(s)
@@ -99,6 +99,23 @@ func printSlice(s []int) {
 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
 
+// Slices can be made dynamically using the make function
+func makeSlice() {
+	// Allocates a zeroed array and returns a slice
+	a := make([]int, 5)
+	printSlice(a)
+
+	// Pass a third argument to make to specify capacity
+	b := make([]int, 0, 5)
+	printSlice(b)
+
+	c := b[:2]
+	printSlice(c)
+
+	d := c[2:5]
+	printSlice(d)
+}
+
 func main() {
 	basic()
 	slice()
@@ -106,5 +123,6 @@ func main() {
 	literals()
 	defaults()
 	lencap()
-	nilslice()
+	nilSlice()
+	makeSlice()
 }
