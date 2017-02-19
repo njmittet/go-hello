@@ -43,7 +43,7 @@ func view() {
 
 // A slice literal is like an array literal without the length
 func literals() {
-	q := []int{2, 3, 4, 5, 6, 7}
+	q := []int{2, 3, 5, 7, 11, 13}
 	fmt.Println(q)
 
 	r := []bool{true, false, true}
@@ -62,10 +62,30 @@ func literals() {
 
 //When slicing, the high or low bounds can be omitted
 func defaults() {
-	q := []int{2, 3, 4, 5, 6, 7}
-	fmt.Println(q[1:4])
-	fmt.Println(q[:4])
-	fmt.Println(q[1:])
+	s := []int{2, 3, 5, 7, 11, 13}
+	fmt.Println(s[1:4])
+	fmt.Println(s[:4])
+	fmt.Println(s[1:])
+}
+
+// A slice has both a length and a capacity
+func lencap() {
+	s := []int{2, 3, 5, 7, 11, 13}
+
+	// Length is the number of elements the slice contains
+	fmt.Println(len(s))
+
+	// Capacity is the number of elements in the underlying array, counting from the first element in the slice
+	fmt.Println(cap(s))
+
+	a := s[:0]
+	fmt.Printf("len=%d cap=%d %v\n", len(a), cap(a), a)
+
+	b := s[:4]
+	fmt.Printf("len=%d cap=%d %v\n", len(b), cap(b), b)
+
+	c := s[2:]
+	fmt.Printf("len=%d cap=%d %v\n", len(c), cap(c), c)
 }
 
 func main() {
@@ -74,4 +94,5 @@ func main() {
 	view()
 	literals()
 	defaults()
+	lencap()
 }
