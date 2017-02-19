@@ -41,8 +41,28 @@ func view() {
 	fmt.Println(names)
 }
 
+// A slice literal is like an array literal without the length
+func literals() {
+	q := []int{2, 3, 4, 5, 6, 7}
+	fmt.Println(q)
+
+	r := []bool{true, false, true}
+	fmt.Println(r)
+
+	s := []struct {
+		i int
+		b bool
+	}{
+		{1, true},
+		{2, false},
+		{3, true},
+	}
+	fmt.Println(s)
+}
+
 func main() {
 	basic()
 	slice()
 	view()
+	literals()
 }
