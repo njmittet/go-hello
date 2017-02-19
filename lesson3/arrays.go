@@ -79,19 +79,23 @@ func lencap() {
 	fmt.Println(cap(s))
 
 	a := s[:0]
-	fmt.Printf("len=%d cap=%d %v\n", len(a), cap(a), a)
+	printSlice(a)
 
 	b := s[:4]
-	fmt.Printf("len=%d cap=%d %v\n", len(b), cap(b), b)
+	printSlice(b)
 
 	c := s[2:]
-	fmt.Printf("len=%d cap=%d %v\n", len(c), cap(c), c)
+	printSlice(c)
 }
 
 // The zero value of a slice is nil
 func nilslice() {
 	// A nil slice has a length and capacity of 0 and has no underlying array
 	var s []int
+	printSlice(s)
+}
+
+func printSlice(s []int) {
 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
 
