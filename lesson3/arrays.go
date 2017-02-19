@@ -60,9 +60,18 @@ func literals() {
 	fmt.Println(s)
 }
 
+//When slicing, the high or low bounds can be omitted
+func defaults() {
+	q := []int{2, 3, 4, 5, 6, 7}
+	fmt.Println(q[1:4])
+	fmt.Println(q[:4])
+	fmt.Println(q[1:])
+}
+
 func main() {
 	basic()
 	slice()
 	view()
 	literals()
+	defaults()
 }
