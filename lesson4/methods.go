@@ -20,9 +20,22 @@ func Sqrt(c Coordinate) float64 {
 	return math.Sqrt(c.X*c.X + c.Y*c.Y)
 }
 
+type MyFloat float64
+
+// Methods can be declared on non-struct types
+func (f MyFloat) Abs() float64 {
+	if f < 0 {
+		return float64(-f)
+	}
+	return float64(f)
+}
 
 func main() {
 	v := Coordinate{3, 4}
 	fmt.Println(v.Calc())
 	fmt.Println(Sqrt(v))
+
+	// Methods can only be declared on types defined in the same package as the method
+	f := MyFloat(-math.Sqrt2)
+	fmt.Println(f.Abs())
 }
