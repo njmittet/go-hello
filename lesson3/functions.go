@@ -44,4 +44,7 @@ func functionClosures() {
 func main() {
 	functionValue()
 	functionClosures()
+
+	// Calling unassigned closure
+	fmt.Println(func(i int) int { return 42 * i }(2))
 }
