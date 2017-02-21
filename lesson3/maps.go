@@ -18,6 +18,16 @@ func basicMap() {
 	fmt.Println(m["Bell Labs"])
 }
 
+func mapLiterals() {
+	// Map literals are like struct literals, but the keys are required
+	var m = map[string]Coordinate{
+		"Bell Labs": {40.68433, -74.39967},
+		"Google":    {37.42202, -122.08408},
+	}
+	fmt.Println(m["Google"])
+}
+
 func main() {
 	basicMap()
+	mapLiterals()
 }
