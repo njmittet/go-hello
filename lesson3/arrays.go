@@ -135,6 +135,20 @@ func twoDimensional() {
 	}
 }
 
+func extend() {
+	var s []int
+	printSlice(s)
+
+	s = append(s, 0)
+	printSlice(s)
+
+	s = append(s, 1)
+	printSlice(s)
+
+	s = append(s, 2, 3, 4)
+	printSlice(s)
+}
+
 func main() {
 	basic()
 	slice()
@@ -145,4 +159,5 @@ func main() {
 	nilSlice()
 	makeSlice()
 	twoDimensional()
+	extend()
 }
