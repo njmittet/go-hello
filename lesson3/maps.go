@@ -27,7 +27,25 @@ func mapLiterals() {
 	fmt.Println(m["Google"])
 }
 
+func mutatingMaps() {
+	m := make(map[string]int)
+
+	m["Answer"] = 42
+	fmt.Println("Value: ", m["Answer"])
+
+	m["Answer"] = 48
+	fmt.Println("Value: ", m["Answer"])
+
+	delete(m, "Answer")
+	fmt.Println("Value: ", m["Answer"])
+
+	// Test that a key is present with a two-value assignment
+	v, ok := m["Answer"]
+	fmt.Println("Value: ", v, "Present: ", ok)
+}
+
 func main() {
 	basicMap()
 	mapLiterals()
+	mutatingMaps()
 }
