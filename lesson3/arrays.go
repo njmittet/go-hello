@@ -145,8 +145,29 @@ func extend() {
 	s = append(s, 1)
 	printSlice(s)
 
+	// The backing array is exended if capasity is to small
 	s = append(s, 2, 3, 4)
 	printSlice(s)
+}
+
+// The range form of the for loop iterates over a slice or map
+func ranges() {
+	s := []int{2, 3, 5, 7, 11, 13}
+
+	// Two values is returned, the index and (a copy of) the value
+	for i, v := range s {
+		fmt.Printf("%d: %d\n", i, v)
+	}
+
+	// If you only want the index, drop the ", value" entirely.
+	for i := range s {
+		s[i] = 1 << uint(i)
+	}
+
+	// The index or value can be skipped by assigning to _
+	for _, n := range s {
+		fmt.Printf("%d\n", n)
+	}
 }
 
 func main() {
@@ -160,4 +181,5 @@ func main() {
 	makeSlice()
 	twoDimensional()
 	extend()
+	ranges()
 }
