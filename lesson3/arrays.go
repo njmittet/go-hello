@@ -6,7 +6,7 @@ import (
 )
 
 // An array has a fixed size.
-func basic() {
+func basicArray() {
 	var a [2]string
 	a[0] = "Go"
 	a[1] = "Hello"
@@ -17,14 +17,14 @@ func basic() {
 }
 
 // A slice is dynamically-sized,
-func slice() {
+func basicSlice() {
 	primes := [6]int{2, 3, 5, 7, 11, 13}
 	var slice []int = primes[1:4]
 	fmt.Println(slice)
 }
 
 // A slice just describes a section of an underlying array
-func view() {
+func sliceView() {
 	names := []string{
 		"John",
 		"Ringo",
@@ -43,7 +43,7 @@ func view() {
 }
 
 // A slice literal is like an array literal without the length
-func literals() {
+func sliceLiterals() {
 	q := []int{2, 3, 5, 7, 11, 13}
 	fmt.Println(q)
 
@@ -62,7 +62,7 @@ func literals() {
 }
 
 //When slicing, the high or low bounds can be omitted
-func defaults() {
+func sliceDefaults() {
 	s := []int{2, 3, 5, 7, 11, 13}
 	fmt.Println(s[1:4])
 	fmt.Println(s[:4])
@@ -70,7 +70,7 @@ func defaults() {
 }
 
 // A slice has both a length and a capacity
-func lencap() {
+func sliceLenCap() {
 	s := []int{2, 3, 5, 7, 11, 13}
 
 	// Length is the number of elements the slice contains
@@ -135,7 +135,7 @@ func twoDimensional() {
 	}
 }
 
-func extend() {
+func appendSlice() {
 	var s []int
 	printSlice(s)
 
@@ -151,7 +151,7 @@ func extend() {
 }
 
 // The range form of the for loop iterates over a slice or map
-func ranges() {
+func sliceRanges() {
 	s := []int{2, 3, 5, 7, 11, 13}
 
 	// Two values is returned, the index and (a copy of) the value
@@ -171,15 +171,15 @@ func ranges() {
 }
 
 func main() {
-	basic()
-	slice()
-	view()
-	literals()
-	defaults()
-	lencap()
+	basicArray()
+	basicSlice()
+	sliceView()
+	sliceLiterals()
+	sliceDefaults()
+	sliceLenCap()
 	nilSlice()
 	makeSlice()
 	twoDimensional()
-	extend()
-	ranges()
+	appendSlice()
+	sliceRanges()
 }
