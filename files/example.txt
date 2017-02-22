@@ -1,0 +1,2 @@
+This is the file content.
+The file has two lines.
