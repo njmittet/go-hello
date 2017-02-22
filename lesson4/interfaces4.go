@@ -2,6 +2,16 @@ package main
 
 import "fmt"
 
+type Person struct {
+	Name string
+	Age  int
+}
+
+// The Stringer interface is defined by the fmt package
+func (p Person) String() string {
+	return fmt.Sprintf("%v (%v years)", p.Name, p.Age)
+}
+
 func zeroValue() {
 	// An empty interface may hold values of any type
 	var i interface{}
@@ -46,6 +56,12 @@ func typeSwitch(i interface{}) {
 
 }
 
+func stringer() {
+	a := Person{"Arthur Dent", 42}
+	z := Person{"Zaphod Beeblebrox", 9001}
+	fmt.Println(a, z)
+}
+
 // An interface that specifies zero methods is known as an empty interface
 func main() {
 	zeroValue()
@@ -53,6 +69,7 @@ func main() {
 	typeSwitch(21)
 	typeSwitch("Hello")
 	typeSwitch(true)
+	stringer()
 }
 
 // Empty interfaces are used by code that handles values of unknown type
