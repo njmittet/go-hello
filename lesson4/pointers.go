@@ -20,11 +20,20 @@ func (c *Coordinate) Scale(f float64) {
 	c.Y = c.Y * f
 }
 
+// Scale rewritten as function
+func functionScale(c *Coordinate, f float64) {
+	c.X = c.X * f
+	c.Y = c.Y * f
+}
+
 func main() {
 	c := Coordinate{3, 4}
 	fmt.Println(c.Abs())
 
 	// Methods with pointer receivers can modify the value of the struct they point to
 	c.Scale(10)
+	fmt.Println(c.Abs())
+
+	functionScale(&c, 2)
 	fmt.Println(c.Abs())
 }
