@@ -5,6 +5,7 @@ import (
 	"math"
 )
 
+// All methods on a given type should have either value or pointer receivers, not a mixture of both
 type Coordinate struct {
 	X, Y float64
 }
@@ -21,7 +22,7 @@ func (c *Coordinate) Scale(f float64) {
 }
 
 // Scale rewritten as function
-func functionScale(c *Coordinate, f float64) {
+func ScaleFunc(c *Coordinate, f float64) {
 	c.X = c.X * f
 	c.Y = c.Y * f
 }
@@ -34,6 +35,7 @@ func main() {
 	c.Scale(10)
 	fmt.Println(c.Abs())
 
-	functionScale(&c, 2)
+	// Using pointers avoid copying for each function call
+	ScaleFunc(&c, 2)
 	fmt.Println(c.Abs())
 }
