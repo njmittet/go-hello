@@ -16,7 +16,7 @@ func (c Coordinate) Calc() float64 {
 }
 
 // Calc rewritten as normal function
-func Sqrt(c Coordinate) float64 {
+func functionCalc(c Coordinate) float64 {
 	return math.Sqrt(c.X*c.X + c.Y*c.Y)
 }
 
@@ -33,7 +33,7 @@ func (f MyFloat) Abs() float64 {
 func main() {
 	v := Coordinate{3, 4}
 	fmt.Println(v.Calc())
-	fmt.Println(Sqrt(v))
+	fmt.Println(functionCalc(v))
 
 	// Methods can only be declared on types defined in the same package as the method
 	f := MyFloat(-math.Sqrt2)
