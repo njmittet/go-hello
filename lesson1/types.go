@@ -58,7 +58,6 @@ func toFloat(x float64) float64 {
 }
 
 func constants() {
-
 	// Constants are declared using the const keyword, and can not use the := syntax
 	fmt.Println("Happy", Pi, "Day")
 
