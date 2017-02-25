@@ -29,6 +29,7 @@ func sum(s []int, c chan int) {
 }
 
 // Channels are a typed conduit through for sending and receiving values with the channel operator: <-
+// Unbuffered channels block receivers until data is available and senders until a receiver is available
 func channels() {
 	s := []int{7, 2, 8, -9, 4, 0}
 	// Channels must be created before use
@@ -39,8 +40,21 @@ func channels() {
 	fmt.Println(x, y, x+y)
 }
 
+// Channels can be buffered
+// Buffered blocks a sender once the buffer fills up.
+func bufferedChannels() {
+	ch := make(chan int, 2)
+	ch <- 1
+	ch <- 2
+	fmt.Println(<-ch)
+	fmt.Println(<-ch)
+	ch <- 3
+	fmt.Println(<-ch)
+}
+
 // Goroutines run in the same address space, so access to shared memory must be synchronized
 func main() {
 	basic()
 	channels()
+	bufferedChannels()
 }
