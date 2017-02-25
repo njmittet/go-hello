@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"bufio"
+	"net/http"
 )
 
 const (
@@ -45,7 +46,9 @@ func cmdScan() {
 	scan := bufio.NewScanner(os.Stdin)
 	scan.Scan()
 	fmt.Printf("You wrote %s", scan.Text())
+
 }
+
 
 func main() {
 	readFile()
