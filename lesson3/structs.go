@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 )
 
 type Vertex struct {
@@ -21,6 +22,11 @@ var (
 	s2 = Square{X: 1} // Y: 0
 	s3 = Square{}     // X: 0, Y: 0
 )
+
+// Declare and initialize struct members using literals
+var Fetched = struct {
+	Items map[string]error
+}{Items: make(map[string]error)}
 
 // A struct is a collection of fields
 func main() {
